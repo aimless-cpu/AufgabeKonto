@@ -8,7 +8,7 @@ public class Customer {
     private int customerNumber;
 
     //constructor
-    public Customer(String customerName, int customerNumber) {
+    public Customer(String customerName) {
         this.customerName = customerName;
         this.customerNumber = createCustomerNumber();
     }
@@ -19,6 +19,8 @@ public class Customer {
         int n = 100000 + rand.nextInt(900000);
         return n;
     }
+
+
 
     //getter setter
     public String getCustomerName() {
