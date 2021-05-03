@@ -19,6 +19,7 @@ public class Account {
     public void addMoney(double customerInputDouble) {
         this.accountBalance = this.accountBalance + customerInputDouble;
         System.out.println("added " + customerInputDouble);
+        System.out.println("new balance:" + this.accountBalance);
     }
 
     public void receiveMoney(double customerInputDouble) {

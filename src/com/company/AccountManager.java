@@ -5,51 +5,86 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AccountManager {
-    public void run(){
+    public void run() {
         Scanner sc = new Scanner(System.in);
+
+        List<Account> accounts = new ArrayList<>();
+        AccountSavings as = new AccountSavings(100, 1);
+        accounts.add(as);
+
         String customerInputString;
-        Double customerInputDouble;
+        System.out.println("set customer name");
         customerInputString = sc.next();
 
         Customer c = new Customer(customerInputString);
-        System.out.println("1 set name");
-
         System.out.println(c.getCustomerName() + " " + c.getCustomerNumber());
 
-        //int customerInputInt;
-        int input = 0;
-        List<Account> accounts = new ArrayList<>();
-        AccountSavings as = new AccountSavings(100,1);
-        accounts.add(as);
 
+
+        while (true) {
+            //instance
+
+            Double customerInputDouble;
+            int input = 0;
+
+            printMenue();
+
+            input = sc.nextInt();
+
+            switch (input) {
+                case 1:
+                    getBalance(sc, accounts);
+                    break;
+                case 2:
+                    addMoney(sc, accounts);
+                    break;
+                case 3:
+                    receiveMoney(sc, accounts);
+                    break;
+                case 4:
+                    createAccount(sc, accounts);
+                    break;
+                default:
+                    break;
+
+            }
+        }
+
+
+    }
+
+    private void printMenue() {
+        System.out.println("1 get balance");
+        System.out.println("2 add money");
+        System.out.println("3 receive money");
+        System.out.println("4 create account");
+    }
+
+    private void receiveMoney(Scanner sc, List<Account> accounts) {
         printAccounts(accounts);
-
-
-        System.out.println("get balance of account number:");
+        Double customerInputDouble;
+        int input;
+        System.out.println("receive money from account number:");
         input = sc.nextInt();
-        getAccountBalance(input, accounts);
+        customerInputDouble = sc.nextDouble();
+        accounts.get(input -1).receiveMoney(customerInputDouble);
+    }
 
+    private void addMoney(Scanner sc, List<Account> accounts) {
+        printAccounts(accounts);
+        Double customerInputDouble;
+        int input;
         System.out.println("add money to account number:");
         input = sc.nextInt();
         customerInputDouble= sc.nextDouble();
-        addAccountMoney(customerInputDouble, input, accounts);
-
-
-        createAccount(sc, accounts);
-
-
-        System.out.println("choose Account to manage");
-        input = sc.nextInt();
-
-
-
-    }
-
-    private void addAccountMoney(Double customerInputDouble, int input, List<Account> accounts) {
         accounts.get(input -1).addMoney(customerInputDouble);
     }
 
-    private void getAccountBalance(int input, List<Account> accounts) {
+    private void getBalance(Scanner sc, List<Account> accounts) {
+        printAccounts(accounts);
+        int input;
+        System.out.println("get balance of account number:");
+        input = sc.nextInt();
         System.out.println(accounts.get(input-1).getAccountBalance());
     }
 
@@ -79,7 +114,7 @@ public class AccountManager {
                 default:
                     break;
             }
-            printAccounts(accounts);
+            //printAccounts(accounts);
 
         }
     }
@@ -88,10 +123,10 @@ public class AccountManager {
         for (Account account : accounts) {
             System.out.print((accounts.indexOf(account)) + 1);
             System.out.print(" ");
-            System.out.print(account.getAccountID());
-            System.out.print(" ");
-            System.out.print(account.getAccountBalance());
-            System.out.print(" ");
+            //System.out.print(account.getAccountID());
+            //System.out.print(" ");
+            //System.out.print(account.getAccountBalance());
+            //System.out.print(" ");
             System.out.println(account.getClass().getSimpleName());
         }
     }
