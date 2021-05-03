@@ -18,7 +18,7 @@ public class Account {
     //method
     public void addMoney(double customerInputDouble) {
         this.accountBalance = this.accountBalance + customerInputDouble;
-
+        System.out.println("added " + customerInputDouble);
     }
 
     //getter setter
