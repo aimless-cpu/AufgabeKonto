@@ -21,6 +21,11 @@ public class Account {
         System.out.println("added " + customerInputDouble);
     }
 
+    public void receiveMoney(double customerInputDouble) {
+        this.accountBalance = this.accountBalance - customerInputDouble;
+        System.out.println("received " + customerInputDouble);
+    }
+
     //getter setter
     public double getAccountBalance() {
         return accountBalance;

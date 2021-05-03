@@ -22,18 +22,17 @@ public class AccountManager {
         AccountSavings as = new AccountSavings(100,1);
         accounts.add(as);
 
-
-
         printAccounts(accounts);
 
-        input = sc.nextInt();
 
+        System.out.println("get balance of account number:");
+        input = sc.nextInt();
         getAccountBalance(input, accounts);
 
-        //input = sc.nextInt();
-
+        System.out.println("add money to account number:");
+        input = sc.nextInt();
         customerInputDouble= sc.nextDouble();
-        accounts.get(input-1).addMoney(customerInputDouble);
+        addAccountMoney(customerInputDouble, input, accounts);
 
 
         createAccount(sc, accounts);
@@ -44,6 +43,10 @@ public class AccountManager {
 
 
 
+    }
+
+    private void addAccountMoney(Double customerInputDouble, int input, List<Account> accounts) {
+        accounts.get(input -1).addMoney(customerInputDouble);
     }
 
     private void getAccountBalance(int input, List<Account> accounts) {
