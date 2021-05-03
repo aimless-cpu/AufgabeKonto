@@ -20,7 +20,6 @@ public class AccountManager {
         System.out.println(c.getCustomerName() + " " + c.getCustomerNumber());
 
 
-
         while (true) {
             //instance
 
@@ -66,6 +65,7 @@ public class AccountManager {
         int input;
         System.out.println("receive money from account number:");
         input = sc.nextInt();
+        System.out.println("how much?");
         customerInputDouble = sc.nextDouble();
         accounts.get(input -1).receiveMoney(customerInputDouble);
     }
@@ -76,6 +76,7 @@ public class AccountManager {
         int input;
         System.out.println("add money to account number:");
         input = sc.nextInt();
+        System.out.println("how much?");
         customerInputDouble= sc.nextDouble();
         accounts.get(input -1).addMoney(customerInputDouble);
     }
