@@ -10,7 +10,9 @@ public class AccountManager {
 
         List<Account> accounts = new ArrayList<>();
         AccountSavings as = new AccountSavings(100, 1);
+        AccountChecking ac = new AccountChecking(200, 2);
         accounts.add(as);
+        accounts.add(ac);
 
         String customerInputString;
         System.out.println("set customer name");

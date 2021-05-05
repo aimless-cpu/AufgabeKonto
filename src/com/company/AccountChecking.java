@@ -4,7 +4,6 @@ public class AccountChecking extends Account {
     //instance
     private int possibleOverdraft = -1500;
     private double interestRate = 0.025;
-    private double interestRateDefault = 0.025;
     private double interestRateOverdraft = -0.05;
 
     //constructor
@@ -13,15 +12,21 @@ public class AccountChecking extends Account {
     }
 
     public void receiveMoney(double customerInputDouble) {
-        if (this.getAccountBalance() - customerInputDouble >= possibleOverdraft) {
+        if ((this.getAccountBalance() - customerInputDouble) >= possibleOverdraft) {
             setAccountBalance(getAccountBalance() - customerInputDouble);
             System.out.println("received " + customerInputDouble);
+
             if (getAccountBalance() < 0) {
                 System.out.println("interest rate changed to " + (interestRate = interestRateOverdraft));
+
             } else {
                 System.out.println("interest rate is " + interestRate);
-            System.out.println("max to receive is " + (getAccountBalance()-possibleOverdraft));
+
         }
+        } else {
+            System.out.println("not enough money");
+            System.out.println("max to receive is " + (getAccountBalance()-possibleOverdraft));
+
         }
     }
 
