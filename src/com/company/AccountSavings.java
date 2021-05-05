@@ -13,12 +13,7 @@ public class AccountSavings extends Account{
 
     //method
     public void receiveMoney(double customerInputDouble) {
-        if (this.getAccountBalance() - customerInputDouble >= possibleOverdraft) {
-            setAccountBalance(getAccountBalance() - customerInputDouble);
-            System.out.println("received " + customerInputDouble);
-        } else {
-            System.out.println("max to receive is " + getAccountBalance());
-        }
+        System.out.println("due to this being a savings account receiving money is restricted");
     }
 
     //getter setter

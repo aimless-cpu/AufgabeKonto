@@ -101,6 +101,8 @@ public class AccountManager {
             //create Account
             System.out.println("1 create AccountSavings");
             System.out.println("2 create AccountChecking");
+            System.out.println("3 create AccountCredit");
+            System.out.println("4 create AccountCheckingSpecial");
             System.out.println("5 continue");
 
             input = sc.nextInt();
@@ -114,10 +116,15 @@ public class AccountManager {
                     AccountChecking ac = new AccountChecking(200, 2);
                     accounts.add(ac);
                     break;
+                case 3:
+                    AccountCredit acredit = new AccountCredit(300, 3);
+                    accounts.add(acredit);
+                case 4:
+                    AccountCheckingSpecial acs = new AccountCheckingSpecial(400, 4);
+                    accounts.add(acs);
                 default:
                     break;
             }
-            //printAccounts(accounts);
 
         }
     }
